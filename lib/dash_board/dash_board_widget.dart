@@ -466,9 +466,9 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                         children: [
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 200, 0),
+                                EdgeInsetsDirectional.fromSTEB(0, 20, 230, 0),
                             child: Text(
-                              dateTimeFormat('MMMMEEEEd', getCurrentTimestamp),
+                              dateTimeFormat('MMMEd', getCurrentTimestamp),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Poppins',
@@ -481,22 +481,22 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    30, 0, 110, 0),
+                                    40, 0, 120, 0),
                                 child: Text(
                                   getJsonField(columnTempApiResponse.jsonBody,
                                           r'''$.main.temp''')
                                       .toString(),
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 29,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
                               Image.asset(
                                 'assets/images/cloudy.png',
-                                width: 70,
-                                height: 70,
+                                width: 50,
+                                height: 50,
                                 fit: BoxFit.cover,
                               )
                             ],
