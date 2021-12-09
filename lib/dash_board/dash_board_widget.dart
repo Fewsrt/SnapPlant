@@ -481,14 +481,14 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    30, 0, 90, 0),
+                                    30, 0, 110, 0),
                                 child: Text(
                                   getJsonField(columnTempApiResponse.jsonBody,
                                           r'''$.main.temp''')
                                       .toString(),
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 30,
+                                    fontSize: 29,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),

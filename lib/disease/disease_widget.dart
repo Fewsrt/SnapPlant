@@ -1,4 +1,3 @@
-import '../backend/backend.dart';
 import '../blackmold/blackmold_widget.dart';
 import '../downymildew/downymildew_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -91,48 +90,15 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        StreamBuilder<List<DiseaseRecord>>(
-                                          stream: queryDiseaseRecord(
-                                            singleRecord: true,
+                                        Text(
+                                          'black mold',
+                                          style:
+                                              FlutterFlowTheme.title2.override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Colors.white,
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold,
                                           ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: FlutterFlowTheme
-                                                        .primaryColor,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<DiseaseRecord>
-                                                textDiseaseRecordList =
-                                                snapshot.data;
-                                            // Return an empty Container when the document does not exist.
-                                            if (snapshot.data.isEmpty) {
-                                              return Container();
-                                            }
-                                            final textDiseaseRecord =
-                                                textDiseaseRecordList.isNotEmpty
-                                                    ? textDiseaseRecordList
-                                                        .first
-                                                    : null;
-                                            return Text(
-                                              'black mold',
-                                              style: FlutterFlowTheme.title2
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Colors.white,
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            );
-                                          },
                                         )
                                       ],
                                     ),
@@ -218,48 +184,15 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        StreamBuilder<List<DiseaseRecord>>(
-                                          stream: queryDiseaseRecord(
-                                            singleRecord: true,
+                                        Text(
+                                          'Downy mildew',
+                                          style:
+                                              FlutterFlowTheme.title2.override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Colors.white,
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold,
                                           ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: FlutterFlowTheme
-                                                        .primaryColor,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<DiseaseRecord>
-                                                textDiseaseRecordList =
-                                                snapshot.data;
-                                            // Return an empty Container when the document does not exist.
-                                            if (snapshot.data.isEmpty) {
-                                              return Container();
-                                            }
-                                            final textDiseaseRecord =
-                                                textDiseaseRecordList.isNotEmpty
-                                                    ? textDiseaseRecordList
-                                                        .first
-                                                    : null;
-                                            return Text(
-                                              'Downy mildew',
-                                              style: FlutterFlowTheme.title2
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Colors.white,
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            );
-                                          },
                                         )
                                       ],
                                     ),
@@ -345,48 +278,15 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        StreamBuilder<List<DiseaseRecord>>(
-                                          stream: queryDiseaseRecord(
-                                            singleRecord: true,
+                                        Text(
+                                          'Mealybug',
+                                          style:
+                                              FlutterFlowTheme.title2.override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Colors.white,
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold,
                                           ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: FlutterFlowTheme
-                                                        .primaryColor,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<DiseaseRecord>
-                                                textDiseaseRecordList =
-                                                snapshot.data;
-                                            // Return an empty Container when the document does not exist.
-                                            if (snapshot.data.isEmpty) {
-                                              return Container();
-                                            }
-                                            final textDiseaseRecord =
-                                                textDiseaseRecordList.isNotEmpty
-                                                    ? textDiseaseRecordList
-                                                        .first
-                                                    : null;
-                                            return Text(
-                                              'Mealybug',
-                                              style: FlutterFlowTheme.title2
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Colors.white,
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            );
-                                          },
                                         )
                                       ],
                                     ),
