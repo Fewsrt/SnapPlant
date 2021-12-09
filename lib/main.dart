@@ -7,10 +7,11 @@ import 'auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:snap_plant/log_in/log_in_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'dash_board/dash_board_widget.dart';
-import 'history/history_widget.dart';
 import 'disease/disease_widget.dart';
+import 'account/account_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -101,8 +102,8 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'DashBoard': DashBoardWidget(),
-      'History': HistoryWidget(),
       'Disease': DiseaseWidget(),
+      'Account': AccountWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -117,8 +118,8 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
+            icon: FaIcon(
+              FontAwesomeIcons.leaf,
               size: 24,
             ),
             label: 'Disease',
@@ -126,10 +127,10 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
+              Icons.person,
               size: 24,
             ),
-            label: 'Home',
+            label: 'Account',
             tooltip: '',
           )
         ],

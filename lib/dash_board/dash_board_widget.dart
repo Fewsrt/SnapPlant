@@ -1,4 +1,5 @@
 import '../auth/auth_util.dart';
+import '../backend/api_requests/api_calls.dart';
 import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -443,6 +444,86 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                     border: Border.all(
                       color: FlutterFlowTheme.tertiaryColor,
                     ),
+                  ),
+                  child: FutureBuilder<ApiCallResponse>(
+                    future: tempApiCall(),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50,
+                            height: 50,
+                            child: CircularProgressIndicator(
+                              color: FlutterFlowTheme.primaryColor,
+                            ),
+                          ),
+                        );
+                      }
+                      final columnTempApiResponse = snapshot.data;
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 20, 200, 0),
+                            child: Text(
+                              dateTimeFormat('MMMMEEEEd', getCurrentTimestamp),
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30, 0, 90, 0),
+                                child: Text(
+                                  getJsonField(columnTempApiResponse.jsonBody,
+                                          r'''$.main.temp''')
+                                      .toString(),
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Image.asset(
+                                'assets/images/cloudy.png',
+                                width: 70,
+                                height: 70,
+                                fit: BoxFit.cover,
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 250, 0),
+                            child: Text(
+                              getJsonField(columnTempApiResponse.jsonBody,
+                                      r'''$.weather[:1].main''')
+                                  .toString(),
+                              style: FlutterFlowTheme.bodyText1,
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 225, 0),
+                            child: Text(
+                              getJsonField(columnTempApiResponse.jsonBody,
+                                      r'''$.main.humidity''')
+                                  .toString(),
+                              style: FlutterFlowTheme.bodyText1,
+                            ),
+                          )
+                        ],
+                      );
+                    },
                   ),
                 ),
               ),
