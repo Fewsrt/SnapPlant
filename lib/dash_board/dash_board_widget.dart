@@ -521,8 +521,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 20, 230, 0),
                                         child: Text(
-                                          dateTimeFormat(
-                                              'MMMEd', getCurrentTimestamp),
+                                          'Date',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
@@ -589,26 +588,6 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                 ],
               )
             ],
-          ),
-          Align(
-            alignment: AlignmentDirectional(-0.85, 1.09),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(34, 0, 0, 0),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Color(0xFFEEEEEE),
-                ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(40, 0, 40, 60),
-                  child: Text(
-                    'Hello World',
-                    style: FlutterFlowTheme.bodyText1,
-                  ),
-                ),
-              ),
-            ),
           )
         ],
       ),
