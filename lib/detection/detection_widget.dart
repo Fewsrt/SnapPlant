@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -121,8 +122,16 @@ class _DetectionWidgetState extends State<DetectionWidget>
                 ],
               ),
             ),
+            AuthUserStreamWidget(
+              child: Image.network(
+                currentUserPhoto,
+                width: 200,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
+            ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 20, 0, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,

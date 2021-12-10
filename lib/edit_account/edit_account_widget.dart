@@ -336,7 +336,6 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
                   ),
                   borderRadius: 8,
                 ),
-                showLoadingIndicator: false,
               ),
             ),
           )
