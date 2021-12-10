@@ -117,7 +117,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: 170,
+                        height: 220,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -350,7 +350,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                     ),
                                   );
                                 },
-                                text: 'Take a Picture',
+                                text: 'Upload Image',
                                 options: FFButtonOptions(
                                   width: 280,
                                   height: 40,
@@ -359,6 +359,33 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                       FlutterFlowTheme.subtitle2.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: 12,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                              child: FFButtonWidget(
+                                onPressed: () {
+                                  print('Button pressed ...');
+                                },
+                                text: 'Detection',
+                                options: FFButtonOptions(
+                                  width: 280,
+                                  height: 40,
+                                  color: FlutterFlowTheme.primaryColor,
+                                  textStyle:
+                                      FlutterFlowTheme.subtitle2.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
