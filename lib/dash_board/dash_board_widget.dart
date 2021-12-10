@@ -343,12 +343,6 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                       return;
                                     }
                                   }
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => DetectionWidget(),
-                                    ),
-                                  );
                                 },
                                 text: 'Upload Image',
                                 options: FFButtonOptions(
@@ -373,8 +367,13 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetectionWidget(),
+                                    ),
+                                  );
                                 },
                                 text: 'Detection',
                                 options: FFButtonOptions(
