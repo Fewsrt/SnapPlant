@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -17,23 +18,28 @@ class DetectionWidget extends StatefulWidget {
 class _DetectionWidgetState extends State<DetectionWidget>
     with TickerProviderStateMixin {
   final animationsMap = {
+    'columnOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      fadeIn: true,
+    ),
     'rowOnActionTriggerAnimation1': AnimationInfo(
       curve: Curves.easeIn,
       trigger: AnimationTrigger.onActionTrigger,
       duration: 600,
-      delay: 2000,
+      delay: 5000,
       fadeIn: true,
     ),
     'rowOnActionTriggerAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       duration: 600,
-      delay: 4000,
+      delay: 10000,
       fadeIn: true,
     ),
     'buttonOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       duration: 600,
-      delay: 5000,
+      delay: 10000,
       fadeIn: true,
     ),
   };
@@ -42,6 +48,11 @@ class _DetectionWidgetState extends State<DetectionWidget>
   @override
   void initState() {
     super.initState();
+    startPageLoadAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+      this,
+    );
     setupTriggerAnimations(
       animationsMap.values
           .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
@@ -57,6 +68,9 @@ class _DetectionWidgetState extends State<DetectionWidget>
       body: SafeArea(
         child: StreamBuilder<List<DiseaseRecord>>(
           stream: queryDiseaseRecord(
+            queryBuilder: (diseaseRecord) => diseaseRecord
+                .where('user', isEqualTo: currentUserReference)
+                .orderBy('create_at', descending: true),
             singleRecord: true,
           ),
           builder: (context, snapshot) {
@@ -201,15 +215,49 @@ class _DetectionWidgetState extends State<DetectionWidget>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    dateTimeFormat('d/M H:m',
-                                        columnDiseaseRecord.createAt),
-                                    style: FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Color(0xFF95A1AC),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal,
+                                  StreamBuilder<List<DiseaseRecord>>(
+                                    stream: queryDiseaseRecord(
+                                      queryBuilder: (diseaseRecord) =>
+                                          diseaseRecord.orderBy('create_at',
+                                              descending: true),
+                                      singleRecord: true,
                                     ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<DiseaseRecord>
+                                          textDiseaseRecordList = snapshot.data;
+                                      // Return an empty Container when the document does not exist.
+                                      if (snapshot.data.isEmpty) {
+                                        return Container();
+                                      }
+                                      final textDiseaseRecord =
+                                          textDiseaseRecordList.isNotEmpty
+                                              ? textDiseaseRecordList.first
+                                              : null;
+                                      return Text(
+                                        dateTimeFormat('d/M H:m',
+                                            columnDiseaseRecord.createAt),
+                                        style:
+                                            FlutterFlowTheme.bodyText1.override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: Color(0xFF95A1AC),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      );
+                                    },
                                   )
                                 ],
                               ),
@@ -360,7 +408,7 @@ class _DetectionWidgetState extends State<DetectionWidget>
                   ).animated([animationsMap['buttonOnActionTriggerAnimation']]),
                 )
               ],
-            );
+            ).animated([animationsMap['columnOnPageLoadAnimation']]);
           },
         ),
       ),

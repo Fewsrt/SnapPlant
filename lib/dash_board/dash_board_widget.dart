@@ -348,8 +348,9 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
 
                                   final diseaseCreateData =
                                       createDiseaseRecordData(
-                                    pic: uploadedFileUrl,
                                     createAt: getCurrentTimestamp,
+                                    pic: uploadedFileUrl,
+                                    user: currentUserReference,
                                   );
                                   await DiseaseRecord.collection
                                       .doc()
@@ -467,10 +468,10 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      40, 0, 75, 0),
+                                      40, 0, 95, 0),
                                   child: Text(
                                     getJsonField(columnTempApiResponse.jsonBody,
-                                            r'''${.main.temp}°''')
+                                            r'''$.main.temp''')
                                         .toString(),
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Poppins',
