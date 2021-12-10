@@ -117,7 +117,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: 220,
+                        height: 180,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -343,6 +343,12 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                       return;
                                     }
                                   }
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetectionWidget(),
+                                    ),
+                                  );
                                 },
                                 text: 'Upload Image',
                                 options: FFButtonOptions(
@@ -353,38 +359,6 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                       FlutterFlowTheme.subtitle2.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
-                                  ),
-                                  borderRadius: 12,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => DetectionWidget(),
-                                    ),
-                                  );
-                                },
-                                text: 'Detection',
-                                options: FFButtonOptions(
-                                  width: 280,
-                                  height: 40,
-                                  color: Color(0xFF009688),
-                                  textStyle:
-                                      FlutterFlowTheme.subtitle2.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
                                   ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
