@@ -41,7 +41,7 @@ class _LogInWidgetState extends State<LogInWidget> {
             child: Image.network(
               'https://images.unsplash.com/photo-1508013861974-9f6347163ebe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80',
               width: double.infinity,
-              height: 300,
+              height: 350,
               fit: BoxFit.cover,
             ),
           ),
@@ -297,13 +297,29 @@ class _LogInWidgetState extends State<LogInWidget> {
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Image.network(
-                                                'https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512',
+                                                'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
                                               ),
                                             ),
                                           ),
                                           FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
+                                            onPressed: () async {
+                                              final user =
+                                                  await signInWithGoogle(
+                                                      context);
+                                              if (user == null) {
+                                                return;
+                                              }
+                                              await Navigator
+                                                  .pushAndRemoveUntil(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'DashBoard'),
+                                                ),
+                                                (r) => false,
+                                              );
                                             },
                                             text: 'Log In',
                                             icon: Icon(
@@ -329,77 +345,6 @@ class _LogInWidgetState extends State<LogInWidget> {
                                             ),
                                           )
                                         ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 0, 0, 0),
-                                      child: Container(
-                                        width: 100,
-                                        height: 38,
-                                        child: Stack(
-                                          children: [
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  -0.7, -0.01),
-                                              child: Container(
-                                                width: 18,
-                                                height: 18,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Image.network(
-                                                  'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
-                                            FFButtonWidget(
-                                              onPressed: () async {
-                                                final user =
-                                                    await signInWithGoogle(
-                                                        context);
-                                                if (user == null) {
-                                                  return;
-                                                }
-                                                await Navigator
-                                                    .pushAndRemoveUntil(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        NavBarPage(
-                                                            initialPage:
-                                                                'DashBoard'),
-                                                  ),
-                                                  (r) => false,
-                                                );
-                                              },
-                                              text: 'Log In',
-                                              icon: Icon(
-                                                Icons.add,
-                                                color: Colors.transparent,
-                                                size: 20,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: 100,
-                                                height: 38,
-                                                color: Colors.transparent,
-                                                textStyle: GoogleFonts.getFont(
-                                                  'Lexend Deca',
-                                                  color: Color(0xFF616161),
-                                                  fontWeight: FontWeight.w300,
-                                                  fontSize: 13,
-                                                ),
-                                                borderSide: BorderSide(
-                                                  color: Color(0xFFAAAAAA),
-                                                  width: 0.5,
-                                                ),
-                                                borderRadius: 15,
-                                              ),
-                                            )
-                                          ],
-                                        ),
                                       ),
                                     )
                                   ],

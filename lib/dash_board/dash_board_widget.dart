@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/api_requests/api_calls.dart';
 import '../backend/firebase_storage/storage.dart';
+import '../detection/detection_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/upload_media.dart';
@@ -341,6 +342,12 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                       return;
                                     }
                                   }
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetectionWidget(),
+                                    ),
+                                  );
                                 },
                                 child: Container(
                                   width:
@@ -476,30 +483,34 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                               ),
                             ),
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    40, 0, 120, 0),
-                                child: Text(
-                                  getJsonField(columnTempApiResponse.jsonBody,
-                                          r'''$.main.temp''')
-                                      .toString(),
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      40, 0, 120, 0),
+                                  child: Text(
+                                    getJsonField(columnTempApiResponse.jsonBody,
+                                            r'''$.main.temp''')
+                                        .toString(),
+                                    style: FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Image.asset(
-                                'assets/images/cloudy.png',
-                                width: 50,
-                                height: 50,
-                                fit: BoxFit.cover,
-                              )
-                            ],
+                                Image.asset(
+                                  'assets/images/cloudy.png',
+                                  width: 70,
+                                  height: 70,
+                                  fit: BoxFit.cover,
+                                )
+                              ],
+                            ),
                           ),
                           Padding(
                             padding:
@@ -507,16 +518,6 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                             child: Text(
                               getJsonField(columnTempApiResponse.jsonBody,
                                       r'''$.weather[:1].main''')
-                                  .toString(),
-                              style: FlutterFlowTheme.bodyText1,
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 225, 0),
-                            child: Text(
-                              getJsonField(columnTempApiResponse.jsonBody,
-                                      r'''$.main.humidity''')
                                   .toString(),
                               style: FlutterFlowTheme.bodyText1,
                             ),

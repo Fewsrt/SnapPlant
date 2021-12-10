@@ -5,6 +5,8 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
+import '../main.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,7 +42,12 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
         automaticallyImplyLeading: false,
         leading: InkWell(
           onTap: () async {
-            Navigator.pop(context);
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NavBarPage(initialPage: 'Account'),
+              ),
+            );
           },
           child: Icon(
             Icons.arrow_back_rounded,
@@ -78,18 +85,16 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
-                  child: AuthUserStreamWidget(
-                    child: Container(
-                      width: 90,
-                      height: 90,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.network(
-                        currentUserPhoto,
-                        fit: BoxFit.fitWidth,
-                      ),
+                  child: Container(
+                    width: 90,
+                    height: 90,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: CachedNetworkImage(
+                      imageUrl: uploadedFileUrl,
+                      fit: BoxFit.fitWidth,
                     ),
                   ),
                 ),
@@ -144,6 +149,7 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
                     ),
                     borderRadius: 8,
                   ),
+                  showLoadingIndicator: false,
                 )
               ],
             ),
@@ -305,7 +311,12 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
                     photoUrl: uploadedFileUrl,
                   );
                   await currentUserReference.update(usersUpdateData);
-                  Navigator.pop(context);
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NavBarPage(initialPage: 'Account'),
+                    ),
+                  );
                 },
                 text: 'Save Changes',
                 options: FFButtonOptions(
@@ -325,6 +336,7 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
                   ),
                   borderRadius: 8,
                 ),
+                showLoadingIndicator: false,
               ),
             ),
           )
