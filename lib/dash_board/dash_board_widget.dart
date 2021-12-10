@@ -379,7 +379,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                 options: FFButtonOptions(
                                   width: 280,
                                   height: 40,
-                                  color: FlutterFlowTheme.primaryColor,
+                                  color: Color(0xFF009688),
                                   textStyle:
                                       FlutterFlowTheme.subtitle2.override(
                                     fontFamily: 'Poppins',
