@@ -81,7 +81,7 @@ class _BlackmoldWidgetState extends State<BlackmoldWidget> {
                                               width: 100,
                                               height: 100,
                                               fit: BoxFit.cover,
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -140,12 +140,12 @@ class _BlackmoldWidgetState extends State<BlackmoldWidget> {
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -186,10 +186,10 @@ class _BlackmoldWidgetState extends State<BlackmoldWidget> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -226,10 +226,10 @@ class _BlackmoldWidgetState extends State<BlackmoldWidget> {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -268,14 +268,14 @@ class _BlackmoldWidgetState extends State<BlackmoldWidget> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

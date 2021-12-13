@@ -108,15 +108,15 @@ class _AccountWidgetState extends State<AccountWidget> {
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           Row(
@@ -133,7 +133,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              )
+              ),
             ],
           ),
           ListView(
@@ -185,11 +185,11 @@ class _AccountWidgetState extends State<AccountWidget> {
                                 size: 18,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               Padding(
@@ -238,14 +238,14 @@ class _AccountWidgetState extends State<AccountWidget> {
                                   size: 18,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           Padding(
@@ -283,10 +283,10 @@ class _AccountWidgetState extends State<AccountWidget> {
                     ),
                     borderRadius: 8,
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

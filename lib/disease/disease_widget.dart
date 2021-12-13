@@ -99,7 +99,7 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                             fontSize: 22,
                                             fontWeight: FontWeight.bold,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -133,12 +133,12 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                           ),
                                           borderRadius: 8,
                                         ),
-                                      )
+                                      ),
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -193,7 +193,7 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                             fontSize: 22,
                                             fontWeight: FontWeight.bold,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -227,12 +227,12 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                           ),
                                           borderRadius: 8,
                                         ),
-                                      )
+                                      ),
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -287,7 +287,7 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                             fontSize: 22,
                                             fontWeight: FontWeight.bold,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -321,20 +321,20 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                                           ),
                                           borderRadius: 8,
                                         ),
-                                      )
+                                      ),
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -266,7 +266,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                                   fontSize: 12,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                         Padding(
@@ -343,10 +343,10 @@ class _LogInWidgetState extends State<LogInWidget> {
                                               ),
                                               borderRadius: 15,
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -385,19 +385,19 @@ class _LogInWidgetState extends State<LogInWidget> {
                                         fontSize: 13,
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
     );

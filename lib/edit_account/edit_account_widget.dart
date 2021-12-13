@@ -98,7 +98,7 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
           Padding(
@@ -150,7 +150,7 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
                     borderRadius: 8,
                   ),
                   showLoadingIndicator: false,
-                )
+                ),
               ],
             ),
           ),
@@ -338,7 +338,7 @@ class _EditAccountWidgetState extends State<EditAccountWidget> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

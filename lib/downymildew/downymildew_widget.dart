@@ -80,7 +80,7 @@ class _DownymildewWidgetState extends State<DownymildewWidget> {
                                               width: 100,
                                               height: 100,
                                               fit: BoxFit.cover,
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -139,12 +139,12 @@ class _DownymildewWidgetState extends State<DownymildewWidget> {
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -182,10 +182,10 @@ class _DownymildewWidgetState extends State<DownymildewWidget> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -221,10 +221,10 @@ class _DownymildewWidgetState extends State<DownymildewWidget> {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -263,14 +263,14 @@ class _DownymildewWidgetState extends State<DownymildewWidget> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

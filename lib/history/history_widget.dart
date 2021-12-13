@@ -149,7 +149,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                       fontWeight:
                                                           FontWeight.w500,
                                                     ),
-                                                  )
+                                                  ),
                                                 ],
                                               ),
                                               Padding(
@@ -161,7 +161,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                   height: 50,
                                                   fit: BoxFit.cover,
                                                 ),
-                                              )
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -188,10 +188,10 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                         FontWeight.normal,
                                                   ),
                                                 ),
-                                              )
+                                              ),
                                             ],
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -201,10 +201,10 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           }),
                         );
                       },
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

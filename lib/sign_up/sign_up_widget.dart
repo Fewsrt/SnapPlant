@@ -310,7 +310,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 ),
                                 borderRadius: 25,
                               ),
-                            )
+                            ),
                           ],
                         ),
                         Padding(
@@ -388,10 +388,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                               borderRadius: 15,
                                             ),
                                             showLoadingIndicator: false,
-                                          )
+                                          ),
                                         ],
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -432,19 +432,19 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         ),
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -1,13 +1,9 @@
 import '../auth/auth_util.dart';
 import '../backend/api_requests/api_calls.dart';
-import '../backend/backend.dart';
-import '../backend/firebase_storage/storage.dart';
 import '../detection/detection_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,7 +15,6 @@ class DashBoardWidget extends StatefulWidget {
 }
 
 class _DashBoardWidgetState extends State<DashBoardWidget> {
-  String uploadedFileUrl = '';
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -102,9 +97,9 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                   ),
                                                 ),
                                               ),
-                                            )
+                                            ),
                                           ],
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -127,7 +122,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -222,7 +217,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                                       .normal,
                                                             ),
                                                           ),
-                                                        )
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -294,7 +289,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                                       .normal,
                                                             ),
                                                           ),
-                                                        )
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -366,12 +361,12 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                                       .normal,
                                                             ),
                                                           ),
-                                                        )
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
                                                 ),
-                                              )
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -381,47 +376,6 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                   0, 15, 0, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              final selectedMedia =
-                                                  await selectMediaWithSourceBottomSheet(
-                                                context: context,
-                                                allowPhoto: true,
-                                              );
-                                              if (selectedMedia != null &&
-                                                  validateFileFormat(
-                                                      selectedMedia.storagePath,
-                                                      context)) {
-                                                showUploadMessage(context,
-                                                    'Uploading file...',
-                                                    showLoading: true);
-                                                final downloadUrl =
-                                                    await uploadData(
-                                                        selectedMedia
-                                                            .storagePath,
-                                                        selectedMedia.bytes);
-                                                ScaffoldMessenger.of(context)
-                                                    .hideCurrentSnackBar();
-                                                if (downloadUrl != null) {
-                                                  setState(() =>
-                                                      uploadedFileUrl =
-                                                          downloadUrl);
-                                                  showUploadMessage(
-                                                      context, 'Success!');
-                                                } else {
-                                                  showUploadMessage(context,
-                                                      'Failed to upload media');
-                                                  return;
-                                                }
-                                              }
-
-                                              final diseaseCreateData =
-                                                  createDiseaseRecordData(
-                                                createAt: getCurrentTimestamp,
-                                                pic: uploadedFileUrl,
-                                                user: currentUserReference,
-                                              );
-                                              await DiseaseRecord.collection
-                                                  .doc()
-                                                  .set(diseaseCreateData);
                                               await Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
@@ -430,7 +384,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                 ),
                                               );
                                             },
-                                            text: 'Upload Image',
+                                            text: 'Detection Image',
                                             options: FFButtonOptions(
                                               width: 280,
                                               height: 40,
@@ -449,13 +403,13 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                               borderRadius: 12,
                                             ),
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                         Padding(
@@ -470,7 +424,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -521,7 +475,8 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 20, 230, 0),
                                         child: Text(
-                                          'Date',
+                                          dateTimeFormat(
+                                              'MMMEd', getCurrentTimestamp),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
@@ -559,7 +514,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                               width: 70,
                                               height: 70,
                                               fit: BoxFit.cover,
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -574,21 +529,21 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                               .toString(),
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
-                                      )
+                                      ),
                                     ],
                                   );
                                 },
                               ),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
     );

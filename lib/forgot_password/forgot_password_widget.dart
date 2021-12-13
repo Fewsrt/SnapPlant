@@ -180,7 +180,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                 ),
                                 borderRadius: 25,
                               ),
-                            )
+                            ),
                           ],
                         ),
                         Padding(
@@ -216,9 +216,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                         ),
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -242,14 +242,14 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               ),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
     );

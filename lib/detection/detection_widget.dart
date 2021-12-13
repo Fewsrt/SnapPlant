@@ -140,7 +140,7 @@ class _DetectionWidgetState extends State<DetectionWidget>
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -157,7 +157,7 @@ class _DetectionWidgetState extends State<DetectionWidget>
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -193,7 +193,7 @@ class _DetectionWidgetState extends State<DetectionWidget>
                               decoration: BoxDecoration(
                                 color: Color(0xFFDBE2E7),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -258,7 +258,7 @@ class _DetectionWidgetState extends State<DetectionWidget>
                                         ),
                                       );
                                     },
-                                  )
+                                  ),
                                 ],
                               ),
                               Row(
@@ -272,13 +272,13 @@ class _DetectionWidgetState extends State<DetectionWidget>
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ).animated([animationsMap['rowOnActionTriggerAnimation1']]),
                 ),
@@ -308,7 +308,7 @@ class _DetectionWidgetState extends State<DetectionWidget>
                               decoration: BoxDecoration(
                                 color: Color(0xFFDBE2E7),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -339,7 +339,7 @@ class _DetectionWidgetState extends State<DetectionWidget>
                                       fontSize: 12,
                                       fontWeight: FontWeight.normal,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                               Row(
@@ -367,13 +367,13 @@ class _DetectionWidgetState extends State<DetectionWidget>
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ).animated([animationsMap['rowOnActionTriggerAnimation2']]),
                 ),
@@ -406,7 +406,7 @@ class _DetectionWidgetState extends State<DetectionWidget>
                     ),
                     showLoadingIndicator: false,
                   ).animated([animationsMap['buttonOnActionTriggerAnimation']]),
-                )
+                ),
               ],
             ).animated([animationsMap['columnOnPageLoadAnimation']]);
           },
