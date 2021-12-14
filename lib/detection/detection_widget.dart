@@ -2,9 +2,14 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/upload_media.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../backend/firebase_storage/storage.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tflite/tflite.dart';
+import 'package:image_picker/image_picker.dart';
 
 class DetectionWidget extends StatefulWidget {
   const DetectionWidget({Key key}) : super(key: key);
@@ -14,13 +19,77 @@ class DetectionWidget extends StatefulWidget {
 }
 
 class _DetectionWidgetState extends State<DetectionWidget> {
+  String uploadedFileUrl = '';
+  List _listResult;
+  PickedFile _imageFile;
+  bool _loading = false;
   TextEditingController textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _loading = true;
+    _loadModel();
     textController = TextEditingController();
+  }
+
+  void _loadModel() async {
+    await Tflite.loadModel(
+      model: "assets/model.tflite",
+      labels: "assets/labels.txt",
+    ).then((value) {
+      setState(() {
+        _loading = false;
+      });
+    });
+  }
+
+  void _imageSelection() async {
+    final selectedMedia = await selectMediaWithSourceBottomSheet(
+      context: context,
+      allowPhoto: true,
+    );
+    // if (selectedMedia != null &&
+    //     validateFileFormat(selectedMedia.storagePath, context)) {
+    //   showUploadMessage(context, 'Uploading file...', showLoading: true);
+    //   final downloadUrl =
+    //       await uploadData(selectedMedia.storagePath, selectedMedia.bytes);
+    //   ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    //   if (downloadUrl != null) {
+    //     setState(() => uploadedFileUrl = downloadUrl);
+    //     showUploadMessage(context, 'Success!');
+    //   } else {
+    //     showUploadMessage(context, 'Failed to upload media');
+    //     return;
+    //   }
+    // }
+    var imageFile = selectedMedia.bytes;
+    // setState(() {
+    //   _loading = true;
+    //   _imageFile = imageFile;
+    // });
+    // _imageClasification(imageFile);
+  }
+
+  void _imageClasification(PickedFile image) async {
+    var output = await Tflite.runModelOnImage(
+      path: image.path,
+      numResults: 3,
+      threshold: 0.5,
+      imageMean: 127.5,
+      imageStd: 127.5,
+    );
+    setState(() {
+      _loading = false;
+      _listResult = output;
+    });
+  }
+
+  @override
+  void dispose() {
+    Tflite.close();
+    super.dispose();
   }
 
   @override
@@ -158,14 +227,7 @@ class _DetectionWidgetState extends State<DetectionWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
             child: FFButtonWidget(
-              onPressed: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => NavBarPage(initialPage: 'Disease'),
-                  ),
-                );
-              },
+              onPressed: _imageSelection,
               text: 'Choose Photo',
               options: FFButtonOptions(
                 width: 270,

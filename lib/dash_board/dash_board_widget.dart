@@ -1,6 +1,6 @@
 import '../auth/auth_util.dart';
 import '../backend/api_requests/api_calls.dart';
-import '../detection_dashboard/detection_dashboard_widget.dart';
+import '../detection/detection_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -380,7 +380,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      DetectionDashboardWidget(),
+                                                      DetectionWidget(),
                                                 ),
                                               );
                                             },
