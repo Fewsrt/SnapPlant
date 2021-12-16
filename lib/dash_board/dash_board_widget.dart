@@ -1,11 +1,13 @@
 import '../auth/auth_util.dart';
 import '../backend/api_requests/api_calls.dart';
 import '../detection/detection_widget.dart';
+import '../detection_dashboard/detection_dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weather/weather.dart';
 
 class DashBoardWidget extends StatefulWidget {
   const DashBoardWidget({Key key}) : super(key: key);
@@ -16,6 +18,7 @@ class DashBoardWidget extends StatefulWidget {
 
 class _DashBoardWidgetState extends State<DashBoardWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _cityTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -380,6 +383,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
+                                                      // DetectionWidget(),
                                                       DetectionWidget(),
                                                 ),
                                               );
@@ -493,7 +497,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(40, 0, 95, 0),
+                                                  .fromSTEB(40, 0, 3, 0),
                                               child: Text(
                                                 getJsonField(
                                                         columnTempApiResponse
@@ -509,6 +513,20 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                                 ),
                                               ),
                                             ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 120, 10),
+                                              child: Text(
+                                                '°',
+                                                style: FlutterFlowTheme
+                                                    .bodyText1
+                                                    .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ),
                                             Image.asset(
                                               'assets/images/cloudy.png',
                                               width: 70,
@@ -520,12 +538,12 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 250, 0),
+                                            0, 0, 185, 0),
                                         child: Text(
                                           getJsonField(
                                                   columnTempApiResponse
                                                       .jsonBody,
-                                                  r'''$.weather[:1].main''')
+                                                  r'''$.weather[:1].description''')
                                               .toString(),
                                           style: FlutterFlowTheme.bodyText1,
                                         ),

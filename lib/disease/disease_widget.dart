@@ -60,7 +60,7 @@ class _DiseaseWidgetState extends State<DiseaseWidget> {
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: Image.asset(
-                            'assets/images/2.jpeg',
+                            'assets/images/09.12.2021_22.55.33_REC.png',
                           ).image,
                         ),
                         boxShadow: [

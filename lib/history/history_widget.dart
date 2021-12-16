@@ -152,16 +152,6 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                   ),
                                                 ],
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 20, 0),
-                                                child: Image.network(
-                                                  columnListDiseaseRecord.pic,
-                                                  width: 100,
-                                                  height: 50,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
                                             ],
                                           ),
                                         ),
