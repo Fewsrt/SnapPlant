@@ -21,6 +21,7 @@ import 'package:delayed_display/delayed_display.dart';
 import '../blackmold/blackmold_widget.dart';
 import '../downymildew/downymildew_widget.dart';
 import '../mealybug/mealybug_widget.dart';
+import '../dash_board/dash_board_widget.dart';
 
 class DetectionWidget extends StatefulWidget {
   const DetectionWidget({Key key}) : super(key: key);
@@ -54,6 +55,29 @@ class _DetectionWidgetState extends State<DetectionWidget> {
         _isDetectionout = true;
       });
     });
+  }
+
+  void _showMaterialDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Detection Again'),
+            content: Text('Disease not found!!'),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DashBoardWidget(),
+                      ),
+                    );
+                  },
+                  child: Text('Close')),
+            ],
+          );
+        });
   }
 
   @override
@@ -111,6 +135,8 @@ class _DetectionWidgetState extends State<DetectionWidget> {
             builder: (context) => DownymildewWidget(),
           ),
         );
+      } else if (_output[0]["index"] == 3) {
+        _showMaterialDialog();
       }
     });
   }
@@ -154,12 +180,7 @@ class _DetectionWidgetState extends State<DetectionWidget> {
               alignment: AlignmentDirectional(-0.95, -0.7),
               child: InkWell(
                 onTap: () async {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => NavBarPage(initialPage: ''),
-                    ),
-                  );
+                  Navigator.pop(context);
                 },
                 child: Card(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
